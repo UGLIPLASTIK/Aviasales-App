@@ -1,0 +1,14 @@
+.app {
+  padding: 160px 103px 50px 103px;
+  background-color: rgba(243, 247, 250, 1);
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  &::before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35px;
+    content: url(../../assets/Logo.svg);
+  }
+}
