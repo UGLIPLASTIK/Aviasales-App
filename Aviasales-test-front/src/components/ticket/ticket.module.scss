@@ -20,27 +20,5 @@ $second-color: rgba(33, 150, 243, 1);
       color: $second-color;
       font-size: 24px;
     }
-    .ticketLogo {
-      width: 111px;
-      background: right / contain no-repeat url("../../assets/S7Logo.svg");
-    }
-  }
-  .info {
-    margin-bottom: 10px;
-    font-size: 14px;
-    .flyInfo {
-      display: flex;
-      justify-content: space-between;
-      div {
-        flex-grow: 1;
-      }
-      span {
-        display: block;
-        &.infoTitle {
-          color: rgba(160, 176, 185, 1);
-          font-size: 12px;
-        }
-      }
-    }
   }
 }

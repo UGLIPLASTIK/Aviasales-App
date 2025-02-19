@@ -1,0 +1,19 @@
+.info {
+  margin-bottom: 10px;
+  font-size: 14px;
+  .flyInfo {
+    display: flex;
+    justify-content: space-between;
+    div {
+      // flex-grow: 1;
+      width: 33.333%;
+    }
+    span {
+      display: block;
+      &.infoTitle {
+        color: rgba(160, 176, 185, 1);
+        font-size: 12px;
+      }
+    }
+  }
+}

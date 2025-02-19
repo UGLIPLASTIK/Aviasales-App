@@ -6,6 +6,7 @@ import { handleChange } from '../../store/filterSlice';
 const Filters = () => {
   const filterStatus = useSelector((state) => state.filters.filterStatus);
   const dispatch = useDispatch();
+
   return (
     <Col span={8}>
       <ul className={styles.filter}>
@@ -27,8 +28,8 @@ const Filters = () => {
         <li>
           <label style={{ width: '100%' }}>
             <input
-              name="noOne"
-              checked={filterStatus.noOne}
+              name="0"
+              checked={filterStatus[0]}
               onChange={(e) => {
                 dispatch(handleChange(e.target.name));
               }}
@@ -41,8 +42,8 @@ const Filters = () => {
         <li>
           <label style={{ width: '100%' }}>
             <input
-              name="one"
-              checked={filterStatus.one}
+              name="1"
+              checked={filterStatus[1]}
               onChange={(e) => {
                 dispatch(handleChange(e.target.name));
               }}
@@ -55,8 +56,8 @@ const Filters = () => {
         <li>
           <label style={{ width: '100%' }}>
             <input
-              name="two"
-              checked={filterStatus.two}
+              name="2"
+              checked={filterStatus[2]}
               onChange={(e) => {
                 dispatch(handleChange(e.target.name));
               }}
@@ -69,8 +70,8 @@ const Filters = () => {
         <li>
           <label style={{ width: '100%' }}>
             <input
-              name="three"
-              checked={filterStatus.three}
+              name="3"
+              checked={filterStatus[3]}
               onChange={(e) => {
                 dispatch(handleChange(e.target.name));
               }}

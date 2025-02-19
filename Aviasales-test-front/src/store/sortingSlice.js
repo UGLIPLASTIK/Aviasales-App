@@ -7,6 +7,9 @@ const sortingSlice = createSlice({
     fast: false,
     optimal: false,
   },
+  selectors: {
+    sorting: (state) => state,
+  },
   reducers: {
     handleSortChange(state, action) {
       for (const key in state) {
@@ -17,4 +20,5 @@ const sortingSlice = createSlice({
 });
 
 export const { handleSortChange } = sortingSlice.actions;
+export const { sorting } = sortingSlice.selectors;
 export default sortingSlice.reducer;

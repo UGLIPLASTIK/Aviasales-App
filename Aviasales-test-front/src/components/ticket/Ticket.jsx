@@ -1,27 +1,9 @@
+import { object } from 'prop-types';
 import styles from './ticket.module.scss';
+import Info from '../Info';
 
-const Ticket = () => {
-  const testTicket = {
-    price: 13400,
-    carrier: null,
-    segments: [
-      {
-        origin: 'MOW',
-        destination: 'HKT',
-        date: '10:45',
-        stops: ['HKG', 'JNB'],
-        duration: 1275,
-      },
-      {
-        origin: 'MOW',
-        destination: 'HKT',
-        date: '11:20',
-        stops: ['HKG'],
-        duration: 810,
-      },
-    ],
-  };
-
+const Ticket = ({ ticket }) => {
+  const { carrier } = ticket;
   const formatPrice = (number) => {
     if (String(number).length <= 3) return number;
     const startCut = String(number).length - 3;
@@ -29,39 +11,23 @@ const Ticket = () => {
     return `${result} Р`;
   };
 
-  const Info = () => {
-    return (
-      <div className={styles.info}>
-        <div className={styles.flyInfo}>
-          <div>
-            <span className={styles.infoTitle}>MOW – HKT</span>
-            <span>10:45 – 08:00</span>
-          </div>
-          <div>
-            <span className={styles.infoTitle}>В ПУТИ</span>
-            <span>21ч 15м</span>
-          </div>
-          <div>
-            <span className={styles.infoTitle}>2 ПЕРЕСАДКИ</span>
-            <span>HKG, JNB</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className={styles.ticket}>
       <div className={styles.priceAndLogo}>
-        <span className={styles.price}>{formatPrice(testTicket.price)} </span>
-        <div className={styles.ticketLogo}></div>
+        <span className={styles.price}>{formatPrice(ticket.price)} </span>
+        <img src={`https://images.daisycon.io/airline/?width=110&height=36&color=ffffff&iata=${carrier}`} alt="" />
       </div>
       <div className={styles.ticketInfo}>
-        <Info />
-        <Info />
+        {ticket.segments.map((segment, i) => {
+          return <Info key={i} segment={segment} />;
+        })}
       </div>
     </div>
   );
+};
+
+Ticket.propTypes = {
+  ticket: object.isRequired,
 };
 
 export default Ticket;

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import filterReducer from './filterSlice';
 import sortingReducer from './sortingSlice';
-import ticketsReducer from './ticketsReducer';
+import ticketsReducer from './ticketsSlice';
 
 const loggerMiddleware = (store) => (next) => (action) => {
   console.log(store.getState());
@@ -15,5 +15,5 @@ export default configureStore({
     sorting: sortingReducer,
     tickets: ticketsReducer,
   },
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMiddleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMiddleware),
 });
