@@ -15,5 +15,5 @@ export default configureStore({
     sorting: sortingReducer,
     tickets: ticketsReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMiddleware),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMiddleware),
 });
