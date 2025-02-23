@@ -3,11 +3,11 @@ import filterReducer from './filterSlice';
 import sortingReducer from './sortingSlice';
 import ticketsReducer from './ticketsSlice';
 
-const loggerMiddleware = (store) => (next) => (action) => {
-  console.log(store.getState());
-  console.log('Действие:', action);
-  return next(action);
-};
+// const loggerMiddleware = (store) => (next) => (action) => {
+//   console.log(store.getState());
+//   console.log('Действие:', action);
+//   return next(action);
+// };
 
 export default configureStore({
   reducer: {

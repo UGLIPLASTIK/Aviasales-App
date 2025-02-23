@@ -1,6 +1,6 @@
 import { Col } from 'antd';
 import { arrayOf, object } from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filters } from '../../store/filterSlice';
 import { handleSortChange, sorting } from '../../store/sortingSlice';
@@ -46,7 +46,11 @@ const TicketList = () => {
   const setActive = (bool) => {
     if (bool) return styles.active;
   };
-  const filteredTickets = ticketsWithFilters(actualTickets, selectedSorting, selectedFilters);
+
+  const filteredTickets = useMemo(() => {
+    return ticketsWithFilters(actualTickets, selectedSorting, selectedFilters);
+  }, [actualTickets, selectedSorting, selectedFilters]);
+
   return (
     <Col span={16}>
       <section className={styles.main}>
